@@ -2,6 +2,7 @@ Event Ticketing System
 Introduction
 The Event Ticketing System is a web application designed to facilitate the authorized purchase of event tickets while maintaining data integrity. This platform ensures a seamless experience for both event organizers and attendees.
 
+
 Features
 User authentication and authorization for secure ticket transactions.
 Event creation and management with real-time updates.
