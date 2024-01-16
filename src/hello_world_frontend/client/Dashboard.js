@@ -1,15 +1,15 @@
 import { StyledTitle } from "../assets/Style/Styled";
 import React, {useState} from "react";
 const Dashboard = () =>{
-    const [searchTerm, setSearchTerm] = useState('');
-    const [searchEvent, setSearchEvent] = useState('[]');
+    // const [searchTerm, setSearchTerm] = useState('');
+    // const [searchEvent, setSearchEvent] = useState('[]');
 
-    const performSearch = () => {
-        const search = [
-            // search for event from the database 
-        ];
-        setSearchEvent(search)
-    }
+    // const performSearch = () => {
+    //     const search = [
+    //         // search for event from the database 
+    //     ];
+    //     setSearchEvent(search)
+    // }
 
 
 
