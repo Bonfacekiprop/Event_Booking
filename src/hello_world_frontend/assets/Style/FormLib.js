@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
     StyledTextInput, StyledLabel,StyledIcon, ErrorMsg
  
-} from './../Style';
+} from './Styled';
 
 //Eye for password
 import { FiEyeOff, FiEye } from 'react-icons/fi';

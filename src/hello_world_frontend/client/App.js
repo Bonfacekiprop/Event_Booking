@@ -5,16 +5,18 @@ import Event from "./Event";
 import Login from "./Login";
 import Signup from "./Signup";
 
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import Loader from "react-loader-spinner";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { BrowserRouter as Router,Switch ,Route } from "react-router-dom";
+
+import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 
 
 const App = () =>{
     return (
       <Router>
       <StyledContainer>
-        <Switch>
+        <Routes>
           <Route path="/signup">
             <Signup />
           </Route>
@@ -30,7 +32,7 @@ const App = () =>{
           <Route path="/">
             <Home />
           </Route>
-        </Switch>
+        </Routes>
       
       </StyledContainer>
       </Router>

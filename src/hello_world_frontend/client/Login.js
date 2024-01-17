@@ -1,4 +1,4 @@
-import {CopyrightText, StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel,Avatar, StyledTitle, colors, ButtonGroup, ExtraText, TextLink} from '../assets/Style'
+import {CopyrightText, StyledFormArea, StyledFormButton,Avatar, StyledTitle, colors, ButtonGroup, ExtraText, TextLink} from '../assets/Style/Styled'
 import Logo from './../assets/logo2.svg';
 // forms
 import {Formik, Form} from 'formik';

@@ -1,5 +1,5 @@
-import {CopyrightText, StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel,Avatar, StyledTitle, colors, ButtonGroup, ExtraText, TextLink} from '../assets/Style';
-import Logo from './../assets/logo.png';
+import {CopyrightText, StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel,Avatar, StyledTitle, colors, ButtonGroup, ExtraText, TextLink} from '../assets/Style/Styled';
+import Logo from './../assets/Event.jpeg';
 // forms
 import {Formik, Form} from 'formik';
 import { TextInput } from '../assets/logo2.svg';
