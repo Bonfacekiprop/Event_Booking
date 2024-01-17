@@ -77,7 +77,19 @@ module.exports = {
   module: {
    rules: [
      { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
-     { test: /\.css$/, use: ['style-loader','css-loader'] }
+     { test: /\.css$/, use: ['style-loader','css-loader'] },
+     {
+      test: /\.(png|jpg|jpeg|gif|svg)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/', // Optional: specify the output folder for images
+          },
+        },
+      ],
+    },
    ]
   },
   plugins: [
@@ -116,9 +128,9 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader', 
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
@@ -128,7 +140,7 @@ module.exports = {
   },
 };
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/hello_world_frontend/client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -145,3 +157,11 @@ module.exports = {
     ],
   },
 };
+// module: {
+//   rules: [
+//     {
+//       test: /\.(js|jsx)$/,
+//       exclude: /(node_modules|bower_components)/,
+//       loader: 'babel-loader',
+//       options: { presets: ['@babel/env','@babel/preset-react'] },
+//     }
