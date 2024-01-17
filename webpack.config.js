@@ -36,10 +36,13 @@ function initCanisterEnv() {
 const canisterEnvVariables = initCanisterEnv();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-
 const frontendDirectory = "hello_world_frontend";
-
-const frontend_entry = path.join("src", frontendDirectory, "src", "index.html");
+const frontend_entry = path.join(
+  "src",
+  frontendDirectory,
+  "client",
+  "index.html"
+);
 
 module.exports = {
   target: "web",
@@ -68,29 +71,40 @@ module.exports = {
     filename: "index.js",
     path: path.join(__dirname, "dist", frontendDirectory),
   },
-
-  // Depending in the language or framework you are using for
-  // front-end development, add module loaders to the default
-  // webpack configuration. For example, if you are using React
-  // modules and CSS as described in the "Adding a stylesheet"
-  // tutorial, uncomment the following lines:
   module: {
-   rules: [
-     { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
-     { test: /\.css$/, use: ['style-loader','css-loader'] },
-     {
-      test: /\.(png|jpg|jpeg|gif|svg)$/,
-      use: [
-        {
-          loader: 'file-loader',
+    rules: [
+      { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/", // Optional: specify the output folder for images
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
           options: {
-            name: '[name].[ext]',
-            outputPath: 'images/', // Optional: specify the output folder for images
+            presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
-      ],
-    },
-   ]
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -123,45 +137,37 @@ module.exports = {
     liveReload: true,
   },
 };
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader', 
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-      },
-    ],
-  },
-};
-module.exports = {
-  entry: './src/hello_world_frontend/client/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
-  },
-};
-// module: {
-//   rules: [
-//     {
-//       test: /\.(js|jsx)$/,
-//       exclude: /(node_modules|bower_components)/,
-//       loader: 'babel-loader',
-//       options: { presets: ['@babel/env','@babel/preset-react'] },
-//     }
+// module.exports = {
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /(node_modules|bower_components)/,
+//         use: {
+//           loader: 'babel-loader',
+//           options: {
+//             presets: ['@babel/preset-env', '@babel/preset-react'],
+//           },
+//         },
+//       },
+//     ],
+//   },
+// };
+// module.exports = {
+//   entry: './src/hello_world_frontend/client/index.js',
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     filename: 'bundle.js',
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: 'babel-loader',
+//         },
+//       },
+//     ],
+//   },
+// };
