@@ -21,9 +21,12 @@ import * as Yup from "yup";
 //loaders
 import { Bars } from "react-loader-spinner";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const navigate = useNavigate();
   return (
-    <div>
+    <div >
       <StyledFormArea>
         <Avatar image={Logo} />
         <StyledTitle color={colors.theme} size={30}>
@@ -44,11 +47,13 @@ const Login = () => {
               .required(),
           })}
           onSubmit={(values, { setSubmitting }) => {
+            console.log("checked here")
             console.log(values);
+            navigate("/dashboard", {})
           }}
         >
           {({ isSubmitting }) => (
-            <Form>
+            <Form style={{flexDirection: "column"}}>
               <StyledTextInput
                 name="email"
                 type="text"
@@ -69,7 +74,7 @@ const Login = () => {
                 )}
                 {isSubmitting && (
                   <Bars
-                    type="ThreeDots"
+                    type="ThreeDots" 
                     color={colors.theme}
                     height={45}
                     width={100}
