@@ -16,8 +16,12 @@ import { Formik, Form } from "formik";
 import { FiMail, FiLock, FiUser, FiCalendar } from "react-icons/fi";
 import * as Yup from "yup";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div>
       <StyledFormArea>
@@ -33,27 +37,29 @@ const Signup = () => {
             dateOfBirth: "",
             name: "",
           }}
-          validationSchema={Yup.object({
-            email: Yup.string()
-              .email("Invalid email address")
-              .required("Required"),
-            password: Yup.string()
-              .min(8, "password is too short")
-              .max(30, "password is too long ")
-              .required(),
+          // validationSchema={Yup.object({
+          //   email: Yup.string()
+          //     .email("Invalid email address")
+          //     .required("Required"),
+          //   password: Yup.string()
+          //     .min(8, "password is too short")
+          //     .max(30, "password is too long ")
+          //     .required(),
 
-            name: Yup.string().required("Required"),
-            dateOfBirth: Yup.date().required("Required"),
-            repeatPassword: Yup.string()
-              .required("Required")
-              .oneOf([Yup.ref("password")], "Password must match"),
-          })}
+          //   name: Yup.string().required("Required"),
+          //   dateOfBirth: Yup.date().required("Required"),
+          //   repeatPassword: Yup.string()
+          //     .required("Required")
+          //     .oneOf([Yup.ref("password")], "Password must match"),
+          // })}
           onSubmit={(values, { setSubmitting }) => {
+            console.log("checked here")
             console.log(values);
+            navigate("/dashboard", {})
           }}
         >
           {({ isSubmitting }) => (
-            <Form>
+            <Form style={{flexDirection: "column"}}>
               <StyledTextInput
                 name="name"
                 type="text"

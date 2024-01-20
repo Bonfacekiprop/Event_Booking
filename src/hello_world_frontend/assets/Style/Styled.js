@@ -12,13 +12,16 @@ export const colors ={
     red: "#DC2626"
 
 }
+
+// 
+
 export const StyledContainer = styled.div`
     margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;    
     align-items: center;
-    background: linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${background});
+    background: linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${background}); 
     background-size: cover;
     background-attachment: fixed;
 `
@@ -105,7 +108,7 @@ export const StyledFormArea = styled.div`
 
 
 `;
-export const StyledFormButton = styled.div`
+export const StyledFormButton = styled.button`
     padding: 10px;
     width: 150px;
     background-color: transparent;
@@ -164,4 +167,13 @@ export const CopyrightText = styled.p`
     margin: 20px;
     text-align:center;
     color: ${colors.light2}
+`;
+
+export const searchEven = styled.div`
+    text-align: center;
+    &: hover{
+        text-decoration: underline;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
 `;
